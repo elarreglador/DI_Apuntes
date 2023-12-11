@@ -2,8 +2,8 @@
                    _____                           __                    
                   /  _  \  ______   __ __   ____ _/  |_   ____    ______ 
                  /  /_\  \ \____ \ |  |  \ /    \\   __\_/ __ \  /  ___/ 
-                /    |    \|  |_> >|  |  /|   |  \|  |  \  ___/  \___ \  
-                \____|__  /|   __/ |____/ |___|  /|__|   \___  >/____  > 
+                /    |    \|  |_) )|  |  /|   |  \|  |  \  ___/  \___ \  
+                \____|__  /|   __/ |____/ |___|  /|__|   \___  >/____  ) 
                         \/ |__|                \/            \/      \/  
 *****************************************************************************************
 *****************************************************************************************
@@ -22,7 +22,20 @@ https://github.com/elarreglador
 ACERCA DE LA APLICACION
 ************************************
 
-Apuntes acerca de JS y HTML para entornos electron que facilitan el estudio.
+Apuntes acerca JS y HTML para entornos electron que facilitan el estudio.
+
+En el costado izquierdo se muestra el contenido HTML, mientras que a la derecha tenemos
+tres campos de texto: MAIN.JS , INDEX.HTML y FUNCTIONS.JS por cada objeto que 
+almacenemos (textarea, check, arrays, botones, ...) 
+
+Es posible borrar objetos y/o agregar otros nuevos, por lo que esta aplicacion
+resulta flexible a la hora de guardar datos y consultarlos de una forma relativamente
+rapida.
+
+Esta aplicacion se basa en una modificacion de un ejercicio en el que se muestran 
+algunos superheroes e informacion sobre ellos, de forma que aun quedan ciertos
+'rasgos' de la aplicacion original, como puede ser el nombre del JSON donde se 
+almacena la informacion.
 
 
 ************************************
