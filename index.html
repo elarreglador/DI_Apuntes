@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<header>
+    <title id="titulo">js & html</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="./css/photon.min.css">
+</header>
+
+<body>
+    <div class="window">
+
+        <header class="toolbar toolbar-header">
+            <h1 id="subtitulo" class="title">
+                David Moreno | CFS2 - Desarrollo de Interfaces 2023-2024
+        </header>
+
+        <div class="window-content">
+            <div class="pane-group">
+                <div class="pane-sm sidebar">
+                    <p style=" margin-left: 5px">Objeto:</p>
+                    <input type="texto" id="superhero" style=" margin-left: 5px">
+                    <button id="btnIzq" class="btn btn-positive" style="text-align: center; margin: 5px;">◄</button>
+                    <button id="btnDer" class="btn btn-positive" style="text-align: center">►</button>
+
+                    <br><br>
+
+                    <div id="ejemplo" style="overflow: auto; background-color:darkgray; margin: 5px; height: 50%; width: 95%;">
+                        cosa
+                    </div>
+                    <button id="btnGuardar" class="btn btn-positive" style="margin: 5px;"> 💾 Guardar
+                        modificacion</button><br>
+                    <button id="btnNuevo" class="btn btn-positive" style="margin: 5px;"> 💾 Guardar como nuevo</button>
+
+                </div>
+
+                <div class="pane">
+                    <p>MAIN.JS</p>
+                    <textarea id="main" rows="3" cols="50" style="width: 99%;"></textarea>
+                    <p>INDEX.HTML:</p>
+                    <textarea id="encarnaciones" rows="7" cols="50" style="width: 99%;"></textarea>
+                    <p>FUNCTIONS.JS</p>
+                    <textarea id="informacion" rows="7" cols="50" style="width: 99%;"></textarea>
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="toolbar toolbar-footer">
+            <h1 class="title">
+
+
+            </h1>
+        </footer>
+
+    </div>
+    <script src="./functions.js"></script>
+</body>
+
+</html>
