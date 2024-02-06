@@ -1,4 +1,4 @@
-//FILESYSTEM
+//************************************** FILESYSTEM **************************************
 const fs = require('fs');
 let archivo = './data/contenido.json';
 let fichero = fs.readFileSync(archivo);
@@ -6,38 +6,31 @@ let objeto = new Array();
 objeto = JSON.parse(fichero);
 fichero.close;
 
-//DEFINICIONES
-let subtitulo = document.getElementById("subtitulo");
-let superhero = document.getElementById("superhero");
+//************************************** DEFINICIONES **************************************
+let pos;
+let desplegable = document.getElementById("desplegable");
+let txtDesplegable = document.getElementById("txtDesplegable");
 let visorHTML = document.getElementById("visorHTML");
-let mainJS = document.getElementById("mainJS");
+let main = document.getElementById("main");
 let indexHTML = document.getElementById("indexHTML");
 let functionsJS = document.getElementById("functionsJS");
 let btnGuardar = document.getElementById("btnGuardar");
 let btnNuevo = document.getElementById("btnNuevo");
+let btnBorrar = document.getElementById("btnBorrar");
 
 //MAIN
 rellenaDesplegable();
 
-//FUNCIONES
+//************************************** FUNCIONES **************************************
 function actualiza(nombre) {
+    txtDesplegable.value = desplegable.value + "-bis";
     for (let i = 0; i < objeto.length; i++) {
         if (nombre == objeto[i].nombre) {
             visorHTML.innerHTML = objeto[i].characters;
-            mainJS.value = objeto[i].mainJS;
+            main.value = objeto[i].main;
             indexHTML.value = objeto[i].characters;
             functionsJS.value = objeto[i].info;
-        }
-    }
-}
-
-//averigua la posicion del array del objeto actual
-function pos() {
-    for (let i = 0; i < objeto.length; i++) {
-        if (objeto.nombre == desplegable.value) {
-            return i;
-        } else {
-            return -1;
+            pos = i;
         }
     }
 }
@@ -59,35 +52,40 @@ function desplegableAdd(texto) {
 }
 
 function rellenaDesplegable() {
+    desplegable.innerHTML = "";
     for (let i = 0; i < objeto.length; i++) {
         desplegableAdd(objeto[i].nombre);
     }
+    actualiza(desplegable.value);
 }
 
-
-btnGuardar.addEventListener('click', () => {
-    const nuevo = {
-        "mainJS": mainJS.value,
-        "nombre": desplegable.value,
-        "characters": indexHTML.value,
-        "info": functionsJS.value,
-    };
-    objeto.splice(pos(), 1, nuevo)
-
+function borraPos(posicion){
+    objeto.splice(posicion,1);
     fs.writeFileSync(archivo, JSON.stringify(objeto));
     fs.close;
 
     rellenaDesplegable();
+}
+
+//************************************** LISTENERS **************************************
+btnBorrar.addEventListener('click', ()=>{
+    borraPos(pos);
+})
+
+btnGuardar.addEventListener('click', () => {
+    alert("pos="+pos);
+    //TODO
 })
 
 btnNuevo.addEventListener('click', () => {
+    alert("pos="+pos);
     const nuevo = {
-        "mainJS": mainJS.value,
-        "nombre": desplegable.value,
+        "nombre": txtDesplegable.value,
+        "main": main.value,
         "characters": indexHTML.value,
         "info": functionsJS.value,
     };
-    objeto.splice(pos(), 0, nuevo)
+    objeto.splice(0, 0, nuevo)
 
     fs.writeFileSync(archivo, JSON.stringify(objeto));
     fs.close;
