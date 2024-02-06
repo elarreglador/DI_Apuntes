@@ -1,19 +1,32 @@
-const {app, BrowserWindow}=require('electron')
+//deshabilita notificaciones de seguridad
+process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true;
 
+const { app, BrowserWindow, dialog} = require('electron')
+//requisito de dialog
+require('@electron/remote/main').initialize()
 
-function createWinndow() {
-    let mainWindow = new BrowserWindow({
-        width:800,
-        height:600,
-        webPreferences:{
-            nodeIntegration:true,
-            contextIsolation:false
+function createWindow() {
+    // Crea la ventana del navegador.
+    let win = new BrowserWindow({
+        width: 1500,
+        height: 700,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false
         }
     })
-    mainWindow.setMenu(null);
-    mainWindow.loadFile('index.html');
-    //mainWindow.webContents.openDevTools();
+    // quita el menu por defecto de chromium
+    win.setMenu(null);
+    // y carga el index.html de la aplicación.
+    win.loadFile('index.html')
+    //para mostrar en la ventana la herramientas de desarrollo de chrome:
+    win.webContents.openDevTools()
+    //requisito de dialog
+    require("@electron/remote/main").enable(win.webContents) 
 }
 
-app.whenReady().then(createWinndow);
-app.allowRendererProcessReuse = true;
+
+//cuando la aplicación electron está lista (todos los procesos generados)
+//mediante app.on llamamos a la función que se va ha encargar de lanzar las
+//ventanas:
+app.on('ready', createWindow)
