@@ -74,7 +74,18 @@ btnBorrar.addEventListener('click', ()=>{
 
 btnGuardar.addEventListener('click', () => {
     alert("pos="+pos);
-    //TODO
+    const nuevo = {
+        "nombre": txtDesplegable.value,
+        "main": main.value,
+        "characters": indexHTML.value,
+        "info": functionsJS.value,
+    };
+    objeto.splice(pos, 1, nuevo);
+
+    fs.writeFileSync(archivo, JSON.stringify(objeto));
+    fs.close;
+
+    rellenaDesplegable();
 })
 
 btnNuevo.addEventListener('click', () => {
