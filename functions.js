@@ -73,9 +73,8 @@ btnBorrar.addEventListener('click', ()=>{
 })
 
 btnGuardar.addEventListener('click', () => {
-    alert("pos="+pos);
     const nuevo = {
-        "nombre": txtDesplegable.value,
+        "nombre": desplegable.value,
         "main": main.value,
         "characters": indexHTML.value,
         "info": functionsJS.value,
@@ -89,7 +88,6 @@ btnGuardar.addEventListener('click', () => {
 })
 
 btnNuevo.addEventListener('click', () => {
-    alert("pos="+pos);
     const nuevo = {
         "nombre": txtDesplegable.value,
         "main": main.value,

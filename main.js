@@ -20,7 +20,7 @@ function createWindow() {
     // y carga el index.html de la aplicación.
     win.loadFile('index.html')
     //para mostrar en la ventana la herramientas de desarrollo de chrome:
-    win.webContents.openDevTools()
+    //win.webContents.openDevTools()
     //requisito de dialog
     require("@electron/remote/main").enable(win.webContents) 
 }
